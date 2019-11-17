@@ -32,7 +32,7 @@ namespace Albion.Network
                 DataDeserializeAttribute attribute = (DataDeserializeAttribute)Attribute.GetCustomAttribute(operationType, typeof(DataDeserializeAttribute));
                 if (attribute != null)
                 {
-                    throw new NotImplementedException();
+                    deserializer = (IDataDeserializer)Activator.CreateInstance(attribute.DeserializerType);
                 }
                 else
                 {
