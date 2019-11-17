@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebugOperation.cs" />
+    <Compile Include="JoinOperation.cs" />
     <Compile Include="MoveOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
