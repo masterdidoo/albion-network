@@ -18,18 +18,59 @@ namespace Albion.Network.Example
         static void Main(string[] args)
         {
             albionParser = new AlbionParser();
-            albionParser.AddRequestHandler<MoveOperation>(OperationCodes.Move, (operation) =>
+
+            albionParser.AddEventHandler<AttachItemContainerEvent>(EventCodes.AttachItemContainer, (obj) =>
             {
-                Console.WriteLine($"Move request");
+                Console.WriteLine($"{obj.Id} {obj.ContainerId} {obj.Guid1} {obj.Size}");
             });
-            albionParser.AddEventHandler<MoveEvent>(EventCodes.Move, (operation) =>
-            {
-                Console.WriteLine($"Id: {operation.Id} x: {operation.Position.X} y: {operation.Position.Y}");
-            });
-            albionParser.AddEventHandler<NewCharacterEvent>(EventCodes.NewCharacter, (operation) =>
-            {
-                Console.WriteLine($"New ch Id: {operation.Id}");
-            });
+            //albionParser.AddEventHandler<DetachItemContainerEvent>(EventCodes.DetachItemContainer, (obj) =>
+            //{
+            //    Console.WriteLine("DetachItemContainer");
+            //});
+            //foreach(var item in Enum.GetValues(typeof(EventCodes)))
+            //{
+            //    if ((EventCodes)item != EventCodes.Move)
+            //    {
+            //        albionParser.AddEventHandler<DebugEvent>((EventCodes)item, (obj) =>
+            //        {
+            //            Console.WriteLine($"Event: {item}");
+            //        });
+            //    }
+            //}
+
+            //foreach (var item in Enum.GetValues(typeof(OperationCodes)))
+            //{
+            //    if ((OperationCodes)item != OperationCodes.Move)
+            //    {
+            //        albionParser.AddRequestHandler<DebugOperation>((OperationCodes)item, (obj) =>
+            //        {
+            //            Console.WriteLine($"Request: {item}");
+            //        });
+            //    }
+            //}
+
+            //foreach (var item in Enum.GetValues(typeof(OperationCodes)))
+            //{
+            //    if ((OperationCodes)item != OperationCodes.Move)
+            //    {
+            //        albionParser.AddResponseHandler<DebugOperation>((OperationCodes)item, (obj) =>
+            //        {
+            //            Console.WriteLine($"Response: {item}");
+            //        });
+            //    }
+            //}
+
+            //albionParser.AddEventHandler<DebugEvent>(EventCodes.AccessStatus, (obj) =>
+            //{
+            //    Console.WriteLine("");
+            //});
+
+            //albionParser.AddRequestHandler<DebugOperation>(OperationCodes.GetChestLogs, (obj) =>
+            //{
+            //    var guid = new Guid((byte[])obj.Parameters[0]);
+
+            //    Console.WriteLine("");
+            //});
 
             Console.WriteLine("Start");
 

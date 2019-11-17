@@ -25,7 +25,21 @@ namespace Albion.Network
             }
             else
             {
-                TOperation instance = (TOperation)Activator.CreateInstance(typeof(TOperation), packet.Parameters);
+                TOperation instance;
+                IDataDeserializer deserializer;
+
+                Type operationType = typeof(TOperation);
+                DataDeserializeAttribute attribute = (DataDeserializeAttribute)Attribute.GetCustomAttribute(operationType, typeof(DataDeserializeAttribute));
+                if (attribute != null)
+                {
+                    throw new NotImplementedException();
+                }
+                else
+                {
+                    deserializer = new DefaultDataDeserializer();
+                }
+
+                instance = deserializer.Deserialize<TOperation>(packet.Parameters);
 
                 action.Invoke(instance);
             }

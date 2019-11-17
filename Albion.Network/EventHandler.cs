@@ -25,7 +25,21 @@ namespace Albion.Network
             }
             else
             {
-                TEvent instance = (TEvent)Activator.CreateInstance(typeof(TEvent), packet.Parameters);
+                TEvent instance;
+                IDataDeserializer deserializer;
+
+                Type eventType = typeof(TEvent);
+                DataDeserializeAttribute attribute = (DataDeserializeAttribute)Attribute.GetCustomAttribute(eventType, typeof(DataDeserializeAttribute));
+                if (attribute != null)
+                {
+                    throw new NotImplementedException();
+                }
+                else
+                {
+                    deserializer = new DefaultDataDeserializer();
+                }
+
+                instance = deserializer.Deserialize<TEvent>(packet.Parameters);
 
                 action.Invoke(instance);
             }
