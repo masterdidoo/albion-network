@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuctionItem.cs" />
+    <Compile Include="AuctionType.cs" />
     <Compile Include="EventCodes.cs" />
     <Compile Include="HarvestableType.cs" />
     <Compile Include="OperationCodes.cs" />

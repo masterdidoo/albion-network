@@ -41,13 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DebugEvent.cs" />
-    <Compile Include="HarvestableObjectEvent.cs" />
-    <Compile Include="JoinFinishedEvent.cs" />
-    <Compile Include="LeaveEvent.cs" />
-    <Compile Include="MoveEvent.cs" />
-    <Compile Include="NewCharacterEvent.cs" />
-    <Compile Include="NewSimpleHarvestableObjectListEvent.cs" />
+    <Compile Include="MarketEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
