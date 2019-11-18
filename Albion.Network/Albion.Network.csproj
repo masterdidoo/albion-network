@@ -64,11 +64,11 @@
     <Compile Include="AlbionParserExtensions.cs" />
     <Compile Include="BaseEvent.cs" />
     <Compile Include="BaseOperation.cs" />
-    <Compile Include="DataDeserializeAttribute.cs" />
-    <Compile Include="IDataDeserializer.cs" />
-    <Compile Include="DefaultDataDeserializer.cs" />
+    <Compile Include="DataMapperAttribute.cs" />
+    <Compile Include="DefaultDataMapper.cs" />
     <Compile Include="EventHandler.cs" />
     <Compile Include="EventPacket.cs" />
+    <Compile Include="IDataMapper.cs" />
     <Compile Include="IPacketHandler.cs" />
     <Compile Include="PacketHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

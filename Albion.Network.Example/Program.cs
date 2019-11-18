@@ -19,10 +19,15 @@ namespace Albion.Network.Example
         {
             albionParser = new AlbionParser();
 
-            albionParser.AddEventHandler<AttachItemContainerEvent>(EventCodes.AttachItemContainer, (obj) =>
+            albionParser.AddEventHandler<MoveEvent>(EventCodes.Move, (obj) =>
             {
-                Console.WriteLine($"{obj.Id} {obj.ContainerId} {obj.Guid1} {obj.Size}");
+                Console.WriteLine($"{obj.Id} {obj.Speed}");
             });
+
+            //albionParser.AddEventHandler<AttachItemContainerEvent>(EventCodes.AttachItemContainer, (obj) =>
+            //{
+            //    Console.WriteLine($"{obj.Id} {obj.ContainerId} {obj.Guid1} {obj.Size}");
+            //});
             //albionParser.AddEventHandler<DetachItemContainerEvent>(EventCodes.DetachItemContainer, (obj) =>
             //{
             //    Console.WriteLine("DetachItemContainer");

@@ -26,20 +26,20 @@ namespace Albion.Network
             else
             {
                 TOperation instance;
-                IDataDeserializer deserializer;
+                IDataMapper mapper;
 
                 Type operationType = typeof(TOperation);
-                DataDeserializeAttribute attribute = (DataDeserializeAttribute)Attribute.GetCustomAttribute(operationType, typeof(DataDeserializeAttribute));
+                DataMapperAttribute attribute = (DataMapperAttribute)Attribute.GetCustomAttribute(operationType, typeof(DataMapperAttribute));
                 if (attribute != null)
                 {
-                    deserializer = (IDataDeserializer)Activator.CreateInstance(attribute.DeserializerType);
+                    mapper = (IDataMapper)Activator.CreateInstance(attribute.DeserializerType);
                 }
                 else
                 {
-                    deserializer = new DefaultDataDeserializer();
+                    mapper = new DefaultDataMapper();
                 }
 
-                instance = deserializer.Deserialize<TOperation>(packet.Parameters);
+                instance = mapper.MapFromParameters<TOperation>(packet.Parameters);
 
                 action.Invoke(instance);
             }

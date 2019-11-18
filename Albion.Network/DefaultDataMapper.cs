@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Albion.Network
 {
-    public class DefaultDataDeserializer : IDataDeserializer
+    public class DefaultDataMapper : IDataMapper
     {
-        public T Deserialize<T>(Dictionary<byte, object> parameters)
+        public T MapFromParameters<T>(Dictionary<byte, object> parameters)
         {
             return (T)Activator.CreateInstance(typeof(T), parameters);
         }

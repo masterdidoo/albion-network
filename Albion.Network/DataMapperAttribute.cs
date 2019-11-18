@@ -2,9 +2,9 @@
 
 namespace Albion.Network
 {
-    public class DataDeserializeAttribute : Attribute
+    public class DataMapperAttribute : Attribute
     {
-        public DataDeserializeAttribute(Type deserializerType)
+        public DataMapperAttribute(Type deserializerType)
         {
             DeserializerType = deserializerType;
         }
