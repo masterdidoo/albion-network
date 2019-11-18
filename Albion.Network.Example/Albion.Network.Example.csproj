@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -72,10 +72,6 @@
     <ProjectReference Include="..\Albion.Common\Albion.Common.csproj">
       <Project>{bad21844-f93f-4f46-b540-28631d7b0255}</Project>
       <Name>Albion.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Albion.Db\Albion.Db.csproj">
-      <Project>{333f890a-c2de-435b-9903-2b6d12afd510}</Project>
-      <Name>Albion.Db</Name>
     </ProjectReference>
     <ProjectReference Include="..\Albion.Event\Albion.Event.csproj">
       <Project>{b0af151a-78a3-4b07-975d-6c29611e3aa9}</Project>
